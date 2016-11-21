@@ -1,8 +1,6 @@
-require 'pry'
 class CategoriesController < ApplicationController
   def index
-    binding.pry
-    @categories = Categories.all
+    @categories = Category.all
   end
   def new
     @category = Category.new

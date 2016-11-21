@@ -13,6 +13,9 @@
         <%= post.content %>
       </p>
       <br>
+      <div style="text-align:right">
+        Posted at: <%= post.created_at %>
+      </div>
       <span>
         <%= link_to "show this post", post_path(post) %>
       </span>

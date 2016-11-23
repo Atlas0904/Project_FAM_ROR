@@ -2,12 +2,13 @@
   <% if logged_in? %>
   <div class="row">
     <div class='col-md-1 well text-center'>
+      a
     </div>
     <div class="well col-md-6">
       
       <%= render partial: "categories/category", collection: post.categories %>
       <p>
-        <h4><%= post.title %></h4>
+        <h4><b><%= post.title %></b></h4>
       </p>
       <p> 
         <%= post.content %>
@@ -21,5 +22,6 @@
       </span>
       
     </div>
+  </div>
   <% end %>
 </div>

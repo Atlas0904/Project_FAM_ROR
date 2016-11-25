@@ -1,9 +1,9 @@
 <%= stylesheet_link_tag "rotate.css" %>
 <%= stylesheet_link_tag "table.css" %>
 <div class="row">
-  <table >
+  <table style="width: 100%">
     <tr valign="middle">
-        <th class='col-md-1 text-center'>
+        <th class='col-md-1 text-center' style="width: 5%">
         <% if logged_in? %>
           <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
             <img src="http://por.tw/edm/attachments/201304/0357596881.jpg" alt="Like!" width="42" height="42" border="0">
@@ -21,13 +21,13 @@
             <% end %>
         <% end %>
       </th>
-      <th class="col-md-6" style="cellpadding: 5px 5px 5px 5px;">
-        <div class="well  well-lg">
+      <th class="col-md-3">
+        <div class="well  well-lg" style="width: 100%">
           <%= render partial: "categories/category", collection: post.categories %>
           <p>
             <h4><b><%= post.title %></b></h4>
           </p>
-          <div style="width: 1000px">
+          <div>
             <%= post.content %>
           </div>
           <br>

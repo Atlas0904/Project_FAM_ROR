@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
   resources :users, only: [:new, :create, :edit, :update, :show]
   resources :categories, only: [:index, :new, :create]
 
@@ -34,7 +33,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   # Example resource route with options:
   #   resources :products do
   #     member do

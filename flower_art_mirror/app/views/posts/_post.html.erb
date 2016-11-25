@@ -1,27 +1,43 @@
+<%= stylesheet_link_tag "rotate.css" %>
+<%= stylesheet_link_tag "table.css" %>
 <div class="row">
-  <% if logged_in? %>
-  <div class="row">
-    <div class='col-md-1 well text-center'>
-      a
-    </div>
-    <div class="well col-md-6">
-      
-      <%= render partial: "categories/category", collection: post.categories %>
-      <p>
-        <h4><b><%= post.title %></b></h4>
-      </p>
-      <p> 
-        <%= post.content %>
-      </p>
-      <br>
-      <div style="text-align:right">
-        Posted at: <%= post.created_at %>
-      </div>
-      <span>
-        <%= link_to "show this post", post_path(post) %>
-      </span>
-      
-    </div>
-  </div>
-  <% end %>
+  <table >
+    <tr valign="middle">
+        <th class='col-md-1 text-center'>
+        <% if logged_in? %>
+          <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+            <img src="http://por.tw/edm/attachments/201304/0357596881.jpg" alt="Like!" width="42" height="42" border="0">
+          <% end %>
+        <%end %>
+
+        <br/>
+        <%= post.total_votes %><br>
+        Votes
+        <br/>
+
+        <% if logged_in? %>
+            <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+            <img src="http://por.tw/edm/attachments/201304/0357596881.jpg" alt="Like!" width="42" height="42" border="0" class="rotateimg180">
+            <% end %>
+        <% end %>
+      </th>
+      <th class="col-md-6" style="cellpadding: 5px 5px 5px 5px;">
+        <div class="well  well-lg">
+          <%= render partial: "categories/category", collection: post.categories %>
+          <p>
+            <h4><b><%= post.title %></b></h4>
+          </p>
+          <div style="width: 1000px">
+            <%= post.content %>
+          </div>
+          <br>
+          <span style="float: left;">Posted by: <%= " #{post.user.name}" %></span><span style="float: right;"> Post at: <%= post.created_at =%></span>
+          <br>
+          <div>
+            <%= link_to "show this post", post_path(post) %>
+          </div>
+       </div>
+      </th>
+    </tr>
+  </table>
 </div>

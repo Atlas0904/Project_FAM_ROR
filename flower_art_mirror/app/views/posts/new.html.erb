@@ -1,6 +1,6 @@
 <%= render 'shared/title', title: 'New Post'%>
 <div class="well col-md-12">
-  <%= form_for @post do |f| %>
+  <%= form_for :post, url: posts_path, html: { multipart: true } do |f| %>
     <div class="form-group">
       <%= f.label :title %>
       <br>
@@ -18,6 +18,11 @@
       <%= cbox.label(class: "checkbox-inline") { cbox.check_box(class: "checkbox") + cbox.text } %>
       <% end %>
     </div>
+
+
+    <%-# Comment lint: this is for file upload -%>
+    <%= f.file_field :avatar %>
+
   <br>
     <%= f.submit(@post.new_record? ? 'Create Post' : 'Update Post', class: 'btn btn-primary') %>
   <% end %>

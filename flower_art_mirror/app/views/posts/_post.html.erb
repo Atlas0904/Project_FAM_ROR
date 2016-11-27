@@ -24,6 +24,7 @@
       <th class="col-md-3">
         <div class="well  well-lg" style="width: 100%">
           <%= render partial: "categories/category", collection: post.categories %>
+          <%= image_tag post.avatar.url(:thumb) %>
           <p>
             <h4><b><%= post.title %></b></h4>
           </p>

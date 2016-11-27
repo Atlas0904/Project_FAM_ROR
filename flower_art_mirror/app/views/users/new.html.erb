@@ -1,7 +1,7 @@
 <h4>Register</h4>
 
 <div class="well col-md-6">
-  <%= form_for @user do |f| %>
+  <%= form_for @user, :html => { :multipart => true } do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <br>
@@ -12,6 +12,9 @@
     <br>
     <%= f.password_field :password%>
   </div>
+
+    <%= f.file_field :photo %>
+
   <br>
   <%= f.submit(@user.new_record? ? 'Register' : 'Update Profile', class: 'btn btn-primary') %>
   <% end %>

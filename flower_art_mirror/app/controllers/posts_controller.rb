@@ -1,3 +1,4 @@
+require 'pry'
 class PostsController < ApplicationController
   def index
     @posts = Post.all.reverse
@@ -7,10 +8,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
+
   end
 
   def new
     @post = Post.new
+    
   end
 
   def create
@@ -33,13 +36,12 @@ class PostsController < ApplicationController
     else
       flash[:error] = "You can only vote for #{@post.title} once!"
     end
-
     redirect_to :back
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, category_ids: [])
+    params.require(:post).permit(:title, :content, :avatar, category_ids: [])
   end
 end

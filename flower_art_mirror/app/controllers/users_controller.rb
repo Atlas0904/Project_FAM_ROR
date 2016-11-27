@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
 
   def show
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:name, :password)
+    params.require(:user).permit(:name, :password, :photo)
   end
 end
 

@@ -59,8 +59,9 @@
 
 <hr>
 
-  <%= form_for @image_post, html: { multipart: true } do |f| %>
-  <%= link_to image_tag(@image_post.image.url(:med)), @image_post.image.url %>
+<%= image_tag @post.avatar.url %>
+<%= image_tag @post.avatar.url(:medium) %>
+<%= image_tag @post.avatar.url(:thumb) %>
 
 <div class="row">
   <%= link_to 'go back to all posts', posts_path %>

@@ -2,6 +2,7 @@
 
 <h4><%= current_user.name %>'s posts:</h4>
 
+<%= image_tag @user.photo.url %>
 <% @user.posts.each do |post| %>
 
 <div class="row">
